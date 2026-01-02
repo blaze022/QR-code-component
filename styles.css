@@ -1,0 +1,205 @@
+:root {
+  --bg-main: #dbe7f1;
+  --card-bg: #ffffff;
+  --text-dark: #1f314f;
+  --text-light: #7b879d;
+  --blue: #2c7dfa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background: var(--card-bg);
+  width: min(20rem, 90%);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  color: var(--text-dark);
+  margin-block-end: 0.75rem;
+}
+
+.card p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.qr-box {
+  background: var(--blue);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-block-end: 1.25rem;
+}
+
+.qr-box img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* 
+
+## 🧱 1. `.container` with `min-height: 100vh`
+
+```css
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+### What it does
+
+* `min-height: 100vh`
+  → Ensures the container is **at least the height of the viewport**
+* Allows **vertical + horizontal centering** using Flexbox
+* Container can **grow taller** if content increases
+
+### Why `min-height` (not `height`)
+
+* `height: 100vh` can cut off content
+* `min-height` is **flexible and safer**
+
+---
+
+## 📏 2. What happens to width?
+
+* No width is defined → `width: auto`
+* Block elements (`div`) automatically stretch to **100% of parent width**
+* No need to use `width: 100vw` (avoids horizontal scroll issues)
+
+---
+
+## 📐 3. Responsive width using `min()`
+
+```css
+width: min(20rem, 90%);
+```
+
+### Meaning
+
+* Uses the **smaller value**
+* Max width = `20rem`
+* Shrinks to `90%` on small screens
+
+### Why it’s good
+
+* Prevents content from being too wide
+* Keeps spacing on small screens
+* Cleaner than `max-width + width`
+
+---
+
+## 🌫️ 4. `box-shadow`
+
+```css
+box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.1);
+```
+
+### What it does
+
+* Adds a **soft shadow** around the element
+* Creates visual **depth / elevation**
+* Does **not affect layout or size**
+
+### Value breakdown
+
+* `0` → no horizontal offset
+* `0.625rem` → shadow goes downward
+* `1.5rem` → blur radius
+* `rgba(0, 0, 0, 0.1)` → subtle shadow color
+
+---
+
+## 🔠 5. Responsive font-size using `clamp()`
+
+```css
+font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+```
+
+### What it does
+
+* Sets a font-size that is **responsive** and **constrained**
+* Chooses a value between:
+
+  * Minimum: `1.1rem`
+  * Preferred: `2.5vw` (relative to viewport width)
+  * Maximum: `1.25rem`
+
+### Why it’s good
+
+* Text grows on larger screens
+* Text never gets too small on mobile
+* Provides **fluid, accessible typography** without media queries
+
+---
+
+## 📝 6. `margin-block-end`
+
+```css
+margin-block-end: 0.75rem;
+```
+
+### What it does
+
+* Adds **vertical spacing** at the **end of a block element**
+  (bottom margin in top-to-bottom languages)
+* Equivalent to `margin-bottom` but **logical and language-aware**
+* Helps maintain spacing consistency in multilingual layouts
+
+---
+
+## 🌀 7. `line-height`
+
+```css
+line-height: 1.5;
+```
+
+### What it does
+
+* Controls **vertical spacing between lines of text**
+* Improves **readability and legibility**
+* Relative value (`1.5`) scales with font-size
+
+### Why it’s good
+
+* Prevents text from feeling cramped
+* Works with responsive font sizes
+* Important for **clean, readable layouts**
+
+---
+
+## 🏆 Key takeaways
+
+* `min-height` controls **minimum vertical space**
+* Width defaults to **auto / full width**
+* `min()` is a modern way to build **responsive layouts**
+* `box-shadow` improves visual hierarchy
+* `clamp()` enables **fluid, constrained typography**
+* `margin-block-end` adds **logical vertical spacing**
+* `line-height` improves **text readability**
+* Flexbox + `100vh` is a standard pattern for centered UI
+
+---
+*/
