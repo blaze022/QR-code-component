@@ -146,7 +146,7 @@ font-size: clamp(1.1rem, 2.5vw, 1.25rem);
   * Minimum: `1.1rem`
   * Preferred: `2.5vw` (relative to viewport width)
   * Maximum: `1.25rem`
-
+ 
 ### Why it’s good
 
 * Text grows on larger screens
